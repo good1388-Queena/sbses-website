@@ -280,7 +280,27 @@ img { display: block; max-width: 100%; }
   font-size: clamp(12px, 2.3cqw, 17px);
   line-height: 1.5;
   white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
+/* gold glow + slight lift on hover and keyboard focus; pressed state for touch */
+.tag:hover,
+.tag:focus-visible {
+  border-color: var(--cream);
+  box-shadow:
+    0 0 0 1px rgba(223, 195, 179, .55),
+    0 0 34px rgba(223, 195, 179, .7),
+    0 10px 24px rgba(27, 20, 34, .6),
+    inset 0 1px 0 rgba(241, 228, 220, .55),
+    inset 0 -10px 16px rgba(27, 20, 34, .3);
+  transform: scale(1.04);
+}
+.tag:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; }
+.tag:active { transform: scale(.98); }
+@media (pointer: coarse) { .tag { min-height: 44px; } }
 .tag .icon { width: 22px; height: 22px; width: clamp(15px, 3cqw, 22px); height: clamp(15px, 3cqw, 22px); }
 
 /* ---------- shared section pieces ---------- */
@@ -354,6 +374,31 @@ img { display: block; max-width: 100%; }
 .service__body { display: flex; flex-direction: column; gap: 10px; }
 .service__title { font-family: var(--font-display); font-size: 34px; font-weight: 600; line-height: 1.15; }
 .service__text { font-size: 16px; color: var(--text-muted); }
+
+/* a service reached from a hero tag or a shared link: clear of the top edge, and marked */
+.service { scroll-margin-top: 28px; transition: border-color .3s ease; }
+.service:target { border-top: 2px solid var(--rose); padding-top: 29px; }
+.service:target .service__title { color: var(--rose); }
+
+/* WhatsApp enquiry link under each service */
+.service__ask {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 8px 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--rose);
+  touch-action: manipulation;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+.service__ask .icon { width: 18px; height: 18px; }
+.service__ask:hover, .service__ask:focus-visible { border-color: var(--rose); color: var(--cream); background: rgba(223, 195, 179, .08); }
 
 /* ---------- why ---------- */
 .band { background: var(--plum-800); border-block: 1px solid var(--plum-700); }
@@ -565,6 +610,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 899.98px) {
   .services__list { display: block; margin-top: 40px; }
   .service { padding: 26px 0 36px; }
+  .service:target { padding-top: 25px; }
 
   .knowledge { flex-direction: column; align-items: stretch; }
   .knowledge .section__head, .knowledge__list { flex: none; max-width: none; }
@@ -598,7 +644,8 @@ img { display: block; max-width: 100%; }
   .hero__art { aspect-ratio: auto; display: flex; flex-direction: column; gap: 22px; }
   .hero__scene img { position: static; width: 100%; transform: none; }
   .hero__tags { position: static; width: auto; transform: none; flex-direction: row; flex-wrap: wrap; gap: 10px; }
-  .tag { flex: 1 1 auto; justify-content: center; gap: 8px; padding: 10px 14px; font-size: 14px; }
+  .hero__tag-item { flex: 1 1 auto; }
+  .tag { justify-content: center; gap: 8px; padding: 10px 14px; min-height: 44px; font-size: 14px; }
   .tag .icon { width: 18px; height: 18px; }
 
   .service { gap: 18px; }
@@ -652,6 +699,8 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
+  /* keep the glow, drop the movement */
+  .tag:hover, .tag:focus-visible, .tag:active { transform: none; }
 }
 
 /* =====================================================================

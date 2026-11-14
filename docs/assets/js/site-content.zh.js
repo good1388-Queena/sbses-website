@@ -56,6 +56,8 @@ window.SITE_CONTENT_ZH = {
     eyebrow: "我们做什么",
     title: "服务项目",
     intro: "可以只选一项，也可以组合搭配。每一项合作，都按您公司的实际需要来界定范围。",
+    enquiryLabel: "WhatsApp 咨询",
+    enquiryTemplate: "您好 SBSES，我想咨询这项服务：{service}。",
     items: [
       {
         title: "全套账目处理",

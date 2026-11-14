@@ -97,6 +97,18 @@
     return node;
   }
 
+  // The one official WhatsApp number (site-content.js → contact.whatsapp.number), digits only.
+  function whatsappNumber() {
+    var raw = content.contact.whatsapp.number;
+    return isSet(raw) ? raw.replace(/\D/g, "") : "";
+  }
+
+  // A wa.me link with the message pre-filled; "" while no number has been supplied.
+  function whatsappUrl(message) {
+    var number = whatsappNumber();
+    return number ? "https://wa.me/" + number + "?text=" + encodeURIComponent(message) : "";
+  }
+
   function icon(name) {
     var holder = document.createElement("span");
     holder.innerHTML = '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
@@ -151,7 +163,14 @@
         "class": "lang-switch__link"
       }, option.label);
       if (option.code === lang) link.setAttribute("aria-current", "true");
+      link.setAttribute("data-lang", option.code);
       switcher.appendChild(link);
+    });
+    // Keep the visitor on the same service block when they switch language after a jump.
+    window.addEventListener("hashchange", function () {
+      each(".lang-switch__link", function (link) {
+        link.setAttribute("href", langUrl(link.getAttribute("data-lang")));
+      });
     });
   }
 
@@ -237,24 +256,62 @@
     });
   }
 
-  fill("[data-hero-tags]", content.hero.tags, function (tag, index) {
-    var li = el("li", { "class": "tag tag--" + (index + 1) });
-    li.appendChild(icon(tag.icon));
-    li.appendChild(el("span", null, tag.label));
+  // Service tags beside the 3D ledger: real links to the matching service block.
+  fill("[data-hero-tags]", content.hero.tags, function (tag) {
+    var li = el("li", { "class": "hero__tag-item" });
+    var link = el("a", { "class": "tag", href: "#" + tag.target });
+    link.appendChild(icon(tag.icon));
+    link.appendChild(el("span", null, tag.label));
+    li.appendChild(link);
     return li;
   });
 
   /* ---------- sections ---------- */
 
   fill("[data-services]", content.services.items, function (item) {
-    var li = el("li", { "class": "service" });
+    var li = el("li", { "class": "service", id: item.id });
     li.appendChild(el("span", { "class": "service__number", "aria-hidden": "true" }, item.number));
     var body = el("div", { "class": "service__body" });
     body.appendChild(el("h3", { "class": "service__title" }, item.title));
     body.appendChild(el("p", { "class": "service__text" }, item.text));
+
+    // WhatsApp enquiry for this service, pre-filled with its name (only once a number is set).
+    var askUrl = whatsappUrl(content.services.enquiryTemplate.replace("{service}", item.title));
+    if (askUrl) {
+      var ask = el("a", {
+        "class": "service__ask", href: askUrl, target: "_blank", rel: "noopener",
+        "aria-label": content.services.enquiryLabel + ": " + item.title
+      });
+      ask.innerHTML = '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-7l-5 4v-4H6a2 2 0 0 1-2-2z"></path><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"></path></svg>';
+      ask.appendChild(el("span", null, content.services.enquiryLabel));
+      body.appendChild(ask);
+    }
+
     li.appendChild(body);
     return li;
   });
+
+  // The sections above are drawn by script, so a link that arrives with #service-… (a shared
+  // link, a reload, a language switch) has to be scrolled to once they exist.
+  if (onHome && window.location.hash.length > 1) {
+    var arrival = document.getElementById(window.location.hash.slice(1));
+    if (arrival) {
+      // Fonts and images that finish loading later move the page, so line up again when
+      // they are in — unless the visitor has already started scrolling on their own.
+      var untouched = true;
+      var realign = function () {
+        // "instant": arriving from a link should not animate (and must not be left half-way).
+        if (untouched) arrival.scrollIntoView({ behavior: "instant", block: "start" });
+      };
+      ["wheel", "touchstart", "keydown", "mousedown"].forEach(function (type) {
+        window.addEventListener(type, function () { untouched = false; }, { once: true, passive: true });
+      });
+      realign();
+      window.addEventListener("load", realign);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(realign);
+    }
+  }
 
   fill("[data-why]", content.why.items, function (item) {
     var li = el("li", { "class": "why__item" });
@@ -309,9 +366,9 @@
       actions.appendChild(node);
     };
 
-    var number = isSet(contact.whatsapp.number) ? contact.whatsapp.number.replace(/\D/g, "") : "";
+    var number = whatsappNumber();
     if (number) {
-      action(contact.whatsapp.label, "https://wa.me/" + number + "?text=" + encodeURIComponent(contact.whatsapp.prefill), "btn--rose", true);
+      action(contact.whatsapp.label, whatsappUrl(contact.whatsapp.prefill), "btn--rose", true);
       known.push("+" + number);
     } else {
       action(contact.whatsapp.label, null, "btn--rose");

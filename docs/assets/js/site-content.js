@@ -56,11 +56,12 @@ window.SITE_CONTENT = {
     primary: { label: "Our Services", href: "#services" },
     secondary: { label: "Contact Us", href: "#contact" },
     illustrationAlt: "3D illustration of an open ledger with a bar chart, a pie chart, a calculator and the figures %, 5 and 8 on a round podium",
+    // Shortcut links beside the 3D ledger. `target` is the id of a service in services.items.
     tags: [
-      { label: "Accounting", icon: "calculator" },
-      { label: "Bookkeeping", icon: "layers" },
-      { label: "Payroll", icon: "people" },
-      { label: "Compliance Support", icon: "shield" }
+      { label: "Accounting", icon: "calculator", target: "service-accounting" },
+      { label: "Bookkeeping", icon: "layers", target: "service-bookkeeping" },
+      { label: "Payroll", icon: "people", target: "service-payroll" },
+      { label: "Compliance Support", icon: "shield", target: "service-compliance" }
     ]
   },
 
@@ -68,28 +69,38 @@ window.SITE_CONTENT = {
     eyebrow: "What we do",
     title: "Our Services",
     intro: "Take one service or combine them. Every engagement is scoped to what your business actually needs.",
+    // WhatsApp link shown under every service. {service} becomes that service's title.
+    // The number itself is contact.whatsapp.number, further down: set it there only.
+    enquiryLabel: "Ask on WhatsApp",
+    enquiryTemplate: "Hello SBSES, I would like to ask about this service: {service}.",
+    // `id` is the anchor the hero tags (and any shared link) jump to. Keep ids unchanged.
     items: [
       {
+        id: "service-accounting",
         number: "01",
         title: "Full Set Accounting",
         text: "Records, reconciliations and financial reporting support."
       },
       {
+        id: "service-bookkeeping",
         number: "02",
         title: "Monthly Bookkeeping",
         text: "Organised, up-to-date accounting records, maintained every month."
       },
       {
+        id: "service-payroll",
         number: "03",
         title: "Payroll & Statutory Support",
         text: "Payroll calculation and payslips, with EPF, SOCSO, EIS and PCB submissions drafted for your approval. HRDF where applicable."
       },
       {
+        id: "service-year-end",
         number: "04",
         title: "Year-End & Audit Preparation Support",
         text: "Schedules prepared and queries handled with your external auditor. SBSES is not an audit firm or tax agent."
       },
       {
+        id: "service-compliance",
         number: "05",
         title: "Accounting Review & Compliance Administration",
         text: "Account review and administrative compliance support, within the agreed service scope."
