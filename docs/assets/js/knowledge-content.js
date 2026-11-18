@@ -239,7 +239,18 @@ window.SBSES_KNOWLEDGE = {
           ] },
           { h: "Example" },
           "For October wages, the payments above are due by 15 November.",
-          "Late payments attract charges from the agency concerned, so it helps to finalise payroll early enough to pay before the 15th."
+          { h: "If a payment is late" },
+          "Each agency applies its own charge. The rules below are as published by the agencies. What is charged in a real case depends on how late the payment is and how much is outstanding.",
+          { list: [
+            "PCB: LHDN’s guideline GPHDN 1/2024 (paragraph 3.4) states that an employer who fails to comply with rule 10(1) of the MTD Rules commits an offence and, on conviction, can be fined between RM200 and RM20,000, imprisoned for up to six months, or both.",
+            "EPF: a late payment charge at the lower of the Simpanan Konvensional and Simpanan Shariah dividend rates for that year, plus 1%. The minimum charge is RM10 and it is rounded up to the next ringgit. If the contribution is still unpaid after the month in which it was due, dividend is charged as well.",
+            "EPF offences: failing to pay contributions by the 15th is an offence under section 43(2) of the EPF Act (up to three years’ imprisonment, a fine of up to RM10,000, or both). Deducting the employee’s share from wages and not paying it to EPF is a separate, heavier offence under section 48(3) (up to six years’ imprisonment, a fine of up to RM20,000, or both).",
+            "SOCSO: interest at 6% a year for each day the contribution remains unpaid.",
+            "EIS: interest at 6% a year for each day of delay. For each employee, interest of less than RM5 is charged as RM5 for each month or part of a month; above RM5 it is rounded up to the next multiple of RM5.",
+            "HRD Corp levy: interest at 10% a year, calculated as arrears × 10% × days late ÷ 365, with a minimum of RM5."
+          ] },
+          { h: "If the 15th is a weekend or public holiday" },
+          "KWSP states that when the 15th falls on a public holiday or weekend, an EPF payment made on the next working day is not charged the late payment charge. This is EPF’s rule. The pages of the other agencies listed below do not say the same, so the safe course is to pay before the 15th."
         ],
         zh: [
           "这是每个月固定的提醒，不是新规定。每个月薪金所涉及的以下缴款，都要在下一个月的 15 日前完成。",
@@ -252,14 +263,29 @@ window.SBSES_KNOWLEDGE = {
           ] },
           { h: "例子" },
           "10 月份薪金的上述缴款，须在 11 月 15 日前完成。",
-          "逾期缴付会被有关机构收取费用，所以最好提早完成薪资计算，赶在 15 日前缴款。"
+          { h: "迟交的后果" },
+          "各机构有各自的收费方式。以下是各机构公布的规定，实际收多少，要看迟了多久、欠多少。",
+          { list: [
+            "PCB：LHDN 的指南 GPHDN 1/2024（第 3.4 段）写明，雇主不遵守《预扣税规则》第 10(1) 条属于违例，一经定罪，可被罚款 RM200 至 RM20,000，或监禁不超过六个月，或两者兼施。",
+            "EPF：迟交收费的利率，是当年 Simpanan Konvensional 与 Simpanan Shariah 两者中较低的股息率，再加 1%。最低收 RM10，并进位到整数令吉。如果过了应缴的那个月仍未缴，还要另外补缴股息。",
+            "EPF 的违例：没有在 15 日或之前缴供款，属于《公积金法令》第 43(2) 条的违例（监禁不超过三年，或罚款不超过 RM10,000，或两者兼施）。已从雇员薪金扣了雇员的份额却没有缴给 EPF，是另一项更重的违例，属于第 48(3) 条（监禁不超过六年，或罚款不超过 RM20,000，或两者兼施）。",
+            "SOCSO：按年利率 6%，以未缴的天数逐日计息。",
+            "EIS：按年利率 6%，以延迟的天数逐日计息。按每名雇员计算，利息不足 RM5 的，每个月（不足一个月也算一个月）收 RM5；超过 RM5 的，进位到 RM5 的倍数。",
+            "HRD Corp 征费：按年利率 10% 计息，算法是欠款 × 10% × 迟交天数 ÷ 365，最低收 RM5。"
+          ] },
+          { h: "15 日适逢周末或公共假期" },
+          "KWSP 说明，15 日适逢公共假期或周末时，在下一个工作日缴付的 EPF 供款不会被收迟交费。这是 EPF 的规定。下面列出的其他机构页面没有同样的说法，所以稳妥的做法仍是赶在 15 日前缴款。"
         ]
       },
       sources: [
         { label: { en: "LHDN: Employer’s Responsibilities (PCB / MTD)", zh: "LHDN：雇主的责任（PCB 预扣税）" }, url: "https://www.hasil.gov.my/en/majikan/tanggungjawab-majikan/" },
         { label: { en: "KWSP: Employer Mandatory Contribution", zh: "KWSP：雇主强制供款" }, url: "https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" },
         { label: { en: "PERKESO: Contribution Payment", zh: "PERKESO：供款缴付" }, url: "https://www.perkeso.gov.my/en/contribution-payment.html" },
-        { label: { en: "Employment Insurance System (Registration and Contribution) Regulations 2017, P.U.(A) 452, regulation 9(1) (PDF on PERKESO’s site)", zh: "《2017 年就业保险制度（注册与缴款）条例》P.U.(A) 452 第 9(1) 条（PERKESO 网站上的 PDF）" }, url: "https://www.perkeso.gov.my/images/akta/ACT%20800/P.U(A)/P.U.%20(A)%20452%20-%20PP%20SIP%20(Pendaftaran%20dan%20Caruman)%202017_PERATURAN-PERATURAN%20SISTEM%20INSURANS%20PEKERJAAN%20(PENDAFTARAN%20DAN%20CARUMAN)%202017.pdf" },
+        { label: { en: "LHDN: GPHDN 1/2024, Monthly Tax Deduction under the MTD Rules, paragraph 3.4 (PDF, in Malay)", zh: "LHDN：GPHDN 1/2024《预扣税规则下的每月预扣税》第 3.4 段（PDF，马来文）" }, url: "https://www.hasil.gov.my/wp-content/uploads/20240102-gpo-1-2024-potongan-cukai-bulanan-di-bawah-kaedah-kaedah-cukai-pendapatan-potongan-daripada-saraan-1994.pdf" },
+        { label: { en: "KWSP: Compliance & Enforcement (sections 43(2) and 48(3))", zh: "KWSP：合规与执法（第 43(2) 和 48(3) 条）" }, url: "https://www.kwsp.gov.my/en/employer/responsibilities/compliance" },
+        { label: { en: "KWSP: Contribution Payment Channels, FAQ (15th on a holiday or weekend; dividend on arrears)", zh: "KWSP：供款缴付渠道的常见问答（15 日适逢假期或周末；欠款的股息）" }, url: "https://www.kwsp.gov.my/en/employer/responsibilities/payments" },
+        { label: { en: "HRD Corp Support Centre: Levy Payment (interest on arrears)", zh: "HRD Corp 支援中心：征费缴付（欠款利息）" }, url: "https://supportcentre.hrdcorp.gov.my/portal/en/kb/articles/hrd-levy-payment" },
+        { label: { en: "Employment Insurance System (Registration and Contribution) Regulations 2017, P.U.(A) 452, regulations 9(1) and 10 (PDF on PERKESO’s site)", zh: "《2017 年就业保险制度（注册与缴款）条例》P.U.(A) 452 第 9(1) 和第 10 条（PERKESO 网站上的 PDF）" }, url: "https://www.perkeso.gov.my/images/akta/ACT%20800/P.U(A)/P.U.%20(A)%20452%20-%20PP%20SIP%20(Pendaftaran%20dan%20Caruman)%202017_PERATURAN-PERATURAN%20SISTEM%20INSURANS%20PEKERJAAN%20(PENDAFTARAN%20DAN%20CARUMAN)%202017.pdf" },
         { label: { en: "HRD Corp Support Centre: Levy Calculation Guideline", zh: "HRD Corp 支援中心：征费计算指南" }, url: "https://supportcentre.hrdcorp.gov.my/portal/en/kb/articles/hrd-levy" }
       ]
     },
