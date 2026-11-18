@@ -74,7 +74,7 @@ window.SBSES_KNOWLEDGE = {
       topic: "income-tax",
       status: "published",
       published: "2026-11-13",
-      reviewed: "2026-11-13",
+      reviewed: "2026-11-18",
       image: {
         src: "assets/img/knowledge/cp500-travel-restriction.jpg", width: 1080, height: 1440,
         alt: {
@@ -133,7 +133,7 @@ window.SBSES_KNOWLEDGE = {
       sources: [
         { label: { en: "Malay Mail, 11 November 2026: report of the Dewan Rakyat answer", zh: "Malay Mail，2026 年 11 月 11 日：下议院答复的报道" }, url: "https://www.malaymail.com/news/malaysia/2026/11/11/taxpayers-behind-on-cp500-wont-be-barred-from-flying-yet-says-deputy-finance-minister/242800" },
         { label: { en: "The Star, 4 June 2026: LHDN on the CP500 penalty exemption", zh: "The Star，2026 年 6 月 4 日：LHDN 说明 CP500 罚款豁免" }, url: "https://www.thestar.com.my/news/nation/2026/06/04/lhdn-sheds-more-light-oncp500-penalty-exemption" },
-        { label: { en: "LHDN: Offences, Fines and Penalties (updated 25 June 2026)", zh: "LHDN：违例、罚款与处罚（2026 年 6 月 25 日更新）" }, url: "https://www.hasil.gov.my/en/perundangan/kesalahan-denda-dan-penalti/" }
+        { label: { en: "LHDN: Offences, Fines and Penalties (Malay page, updated 25 June 2026)", zh: "LHDN：违例、罚款与处罚（马来文页面，2026 年 6 月 25 日更新）" }, url: "https://www.hasil.gov.my/perundangan/kesalahan-denda-dan-penalti/" }
       ]
     },
     {
@@ -211,7 +211,7 @@ window.SBSES_KNOWLEDGE = {
       topic: "payroll-statutory",
       status: "published",
       published: "2026-11-13",
-      reviewed: "2026-11-13",
+      reviewed: "2026-11-18",
       image: {
         src: "assets/img/knowledge/monthly-payments-15th.jpg", width: 1080, height: 1440,
         alt: {
@@ -235,7 +235,7 @@ window.SBSES_KNOWLEDGE = {
             "EPF: contributions for a month’s wages must be paid on or before the 15th of the following month.",
             "SOCSO: PERKESO requires contributions for any month to be paid no later than the 15th day of the following month.",
             "EIS: paid to PERKESO on the same monthly schedule.",
-            "HRD Corp levy: applies only to employers registered with HRD Corp. Its employer FAQ also gives the 15th."
+            "HRD Corp levy: applies only to employers registered with HRD Corp. Its levy calculation guideline shows the same deadline, the 15th of the following month."
           ] },
           { h: "Example" },
           "For October wages, the payments above are due by 15 November.",
@@ -248,7 +248,7 @@ window.SBSES_KNOWLEDGE = {
             "EPF 公积金：每个月薪金的供款，须在下一个月的 15 日或之前缴付。",
             "SOCSO 社会保险：PERKESO 规定，每个月的供款最迟须在下一个月的 15 日缴付。",
             "EIS 就业保险：按同样的每月时间表缴给 PERKESO。",
-            "HRD Corp 征费：只适用于已向 HRD Corp 注册的雇主。它的雇主常见问答同样写明 15 日。"
+            "HRD Corp 征费：只适用于已向 HRD Corp 注册的雇主。它的征费计算指南写明同样的期限：下一个月的 15 日或之前。"
           ] },
           { h: "例子" },
           "10 月份薪金的上述缴款，须在 11 月 15 日前完成。",
@@ -259,7 +259,8 @@ window.SBSES_KNOWLEDGE = {
         { label: { en: "LHDN: Employer’s Responsibilities (PCB / MTD)", zh: "LHDN：雇主的责任（PCB 预扣税）" }, url: "https://www.hasil.gov.my/en/majikan/tanggungjawab-majikan/" },
         { label: { en: "KWSP: Employer Mandatory Contribution", zh: "KWSP：雇主强制供款" }, url: "https://www.kwsp.gov.my/en/employer/responsibilities/mandatory-contribution" },
         { label: { en: "PERKESO: Contribution Payment", zh: "PERKESO：供款缴付" }, url: "https://www.perkeso.gov.my/en/contribution-payment.html" },
-        { label: { en: "HRD Corp: Employers FAQ", zh: "HRD Corp：雇主常见问答" }, url: "https://hrdcorp.gov.my/faq" }
+        { label: { en: "Employment Insurance System (Registration and Contribution) Regulations 2017, P.U.(A) 452, regulation 9(1) (PDF on PERKESO’s site)", zh: "《2017 年就业保险制度（注册与缴款）条例》P.U.(A) 452 第 9(1) 条（PERKESO 网站上的 PDF）" }, url: "https://www.perkeso.gov.my/images/akta/ACT%20800/P.U(A)/P.U.%20(A)%20452%20-%20PP%20SIP%20(Pendaftaran%20dan%20Caruman)%202017_PERATURAN-PERATURAN%20SISTEM%20INSURANS%20PEKERJAAN%20(PENDAFTARAN%20DAN%20CARUMAN)%202017.pdf" },
+        { label: { en: "HRD Corp Support Centre: Levy Calculation Guideline", zh: "HRD Corp 支援中心：征费计算指南" }, url: "https://supportcentre.hrdcorp.gov.my/portal/en/kb/articles/hrd-levy" }
       ]
     },
     /*
